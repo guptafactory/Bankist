@@ -97,4 +97,21 @@ const time = nowDate.getTime();
 const newDate = new Date(time);
 console.log(newDate);
 
+const parseMovDate = function () {
+  const dateStr = '2019-11-18T21:31:17.178Z';
+  // Movement Date
+  const movDate = new Date(dateStr);
+  const year = movDate.getFullYear().toString();
+  const month = (movDate.getMonth() + 1).toString().padStart(2, '0');
+  const date = movDate.getDate().toString().padStart(2, 0);
+  const temp = Math.abs(new Date() - movDate);
+  // Difference of dates
+  const diffInDates = Math.round(temp / (1000 * 60 * 60 * 24));
+  console.log(new Date());
+  console.log(movDate);
+  console.log(temp);
+  console.log(diffInDates);
+};
+parseMovDate();
+
 */
