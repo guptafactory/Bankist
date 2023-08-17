@@ -13,7 +13,11 @@ Enter Username and pin to see your bank account details
 - Further more functionalities will be added...
 
 Test account details:
-Username, Pin: { hg, 1111 }
-Username, Pin: { kg, 2222 }
-Username, Pin: { ad, 3333 }
-Username, Pin: { pr, 4444 }
+Username, Pin: 
+- { hg, 1111 }
+- { kg, 2222 }
+- { ad, 3333 }
+- { pr, 4444 }
+
+Code Flow:
+![Bankist-flowchart](https://github.com/guptafactory/Bankist/assets/97209900/cdcb33a3-5b48-452d-bbdc-1a48240cbad6)
