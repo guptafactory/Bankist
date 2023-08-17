@@ -77,8 +77,10 @@ const account4 = {
   currency: 'EUR',
   locale: 'en-US',
 };
-let currentAccount;
+
+// Global Variables
 const accounts = [account1, account2, account3, account4];
+let currentAccount, timer;
 
 // Elements
 // Labels
@@ -163,6 +165,29 @@ const formatCurr = function (value, locale, currency) {
     style: 'currency',
     currency: currency,
   }).format(value);
+};
+// Login Timer
+const startloginTimer = function () {
+  let t = 120,
+    min,
+    sec; // 120 seconds
+  function updateTimer() {
+    min = Math.trunc(t / 60)
+      .toString()
+      .padStart(2, 0);
+    sec = Math.trunc(t % 60)
+      .toString()
+      .padStart(2, 0);
+    labelTimer.textContent = `${min}:${sec}`;
+    if (t == 0) {
+      clearInterval(timer);
+      labelWelcome.textContent = 'Log in to get started';
+      containerApp.style.opacity = 0;
+    }
+    t--;
+  }
+  updateTimer();
+  timer = setInterval(updateTimer, 1000);
 };
 //
 const displayMovements = function (sort = false) {
@@ -269,6 +294,8 @@ btnLogin.addEventListener('click', function (e) {
     inputLoginUsername.blur();
     inputLoginPin.blur();
     setDateLabel();
+    clearInterval(timer);
+    startloginTimer();
     updateUI();
   }
 });
@@ -294,7 +321,9 @@ btnTransfer.addEventListener('click', function (e) {
     inputTransferTo.value = inputTransferAmount.value = '';
     inputTransferTo.blur();
     inputTransferAmount.blur();
-    updateUI();
+    clearInterval(timer);
+    startloginTimer();
+    setTimeout(() => updateUI(), 1500);
   }
 });
 // Loan Button
@@ -309,7 +338,9 @@ btnLoan.addEventListener('click', function (e) {
     currentAccount.movementsDates.push(new Date().toISOString());
     inputLoanAmount.value = '';
     inputLoanAmount.blur();
-    updateUI();
+    clearInterval(timer);
+    startloginTimer();
+    setTimeout(() => updateUI(), 2500);
   }
 });
 // Close Account Button
@@ -327,6 +358,7 @@ btnClose.addEventListener('click', function (e) {
     inputCloseUsername.blur();
     inputClosePin.blur();
     containerApp.style.opacity = 0;
+    clearInterval(timer);
     labelWelcome.textContent = 'Log in to get started';
   }
 });
@@ -334,6 +366,8 @@ btnClose.addEventListener('click', function (e) {
 let alreadySorted = false;
 btnSort.addEventListener('click', function (e) {
   e.preventDefault();
+  clearInterval(timer);
+  startloginTimer();
   displayMovements(!alreadySorted);
   alreadySorted = !alreadySorted;
 });
