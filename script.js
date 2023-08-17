@@ -2,7 +2,7 @@
 // BANKIST APP
 // Data
 const account1 = {
-  owner: 'Jonas Schmedtmann',
+  owner: 'Himanshu Gupta',
   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
   balance: 0,
   interestRate: 1.2, // %
@@ -18,11 +18,11 @@ const account1 = {
     '2023-08-15T12:01:20.894Z',
   ],
   currency: 'EUR',
-  locale: 'pt-PT', // de-DE
+  locale: 'en-US', // language-Country
 };
 
 const account2 = {
-  owner: 'Jessica Davis',
+  owner: 'Kavya Gaur',
   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
   balance: 0,
   interestRate: 1.5,
@@ -38,11 +38,11 @@ const account2 = {
     '2023-08-15T12:01:20.894Z',
   ],
   currency: 'USD',
-  locale: 'en-US',
+  locale: 'pt-PT',
 };
 
 const account3 = {
-  owner: 'Steven Thomas Williams',
+  owner: 'Armaan Dutt',
   movements: [200, -200, 340, -300, -20, 50, 400, -460],
   balance: 0,
   interestRate: 0.7,
@@ -62,7 +62,7 @@ const account3 = {
 };
 
 const account4 = {
-  owner: 'Sarah Smith',
+  owner: 'Prince Raj',
   movements: [430, 1000, 700, 50, 90],
   balance: 0,
   interestRate: 1,
